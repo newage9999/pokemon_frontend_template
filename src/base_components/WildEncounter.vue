@@ -208,7 +208,30 @@ export default {
                 ['DL_W' ,'',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     'DS_S',  'DL_E' ],
                 ['DC_SW','DL_S',  'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S',  'DC_SE'],
             ];
-        }
+        },
+        pokemonFledComposition(functions) {
+            const {a, i, n, o} = functions;
+            return [
+                ['',     '',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      ''     ],
+                ['',     'NHL_V', n(0),   n(1),   n(2),   n(3),   n(4),   n(5),   n(6),   o,      '',     '',     '',     '',     '',     '',     '',     '',     '',      ''     ],
+                ['',     'NHB_SW','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHC_E','',     '',     i(0,0), i(1,0), i(2,0), i(3,0), i(4,0), '',      ''     ],
+                ['',     '',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     i(0,1), i(1,1), i(2,1), i(3,1), i(4,1), '',      ''     ],
+                ['',     '',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     i(0,2), i(1,2), i(2,2), i(3,2), i(4,2), '',      ''     ],
+                ['',     a(0,0),  a(1,0), a(2,0), a(3,0), a(4,0), a(5,0), a(6,0), '',     '',     '',     '',     '',     i(0,3), i(1,3), i(2,3), i(3,3), i(4,3), '',      ''     ],
+                ['',     a(0,1),  a(1,1), a(2,1), a(3,1), a(4,1), a(5,1), a(6,1), '',     '',     '',     '',     '',     i(0,4), i(1,4), i(2,4), i(3,4), i(4,4), '',      ''     ],
+                ['',     a(0,2),  a(1,2), a(2,2), a(3,2), a(4,2), a(5,2), a(6,2), '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      ''     ],
+                ['',     a(0,3),  a(1,3), a(2,3), a(3,3), a(4,3), a(5,3), a(6,3), '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      ''     ],
+                ['',     a(0,4),  a(1,4), a(2,4), a(3,4), a(4,4), a(5,4), a(6,4), '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      ''     ],
+                ['',     a(0,5),  a(1,5), a(2,5), a(3,5), a(4,5), a(5,5), a(6,5), '',     '',     '',     '',     '',     '',     '',     'A',    'S',    'H',    'NHL_V', ''     ],
+                ['',     a(0,6),  a(1,6), a(2,6), a(3,6), a(4,6), a(5,6), a(6,6), '',     'NHC_W','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHL_H','NHB_SE',''     ],
+                ['DC_NW','DL_N',  'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N', 'DL_N',  'DC_NE'],
+                ['DL_W' ,'',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      'DL_E' ],
+                ['DL_W' ,'P',     'o',    'k',    'e',    'm',    'o',    'n',    '',     'f',    'l',    'e',    'd',    '!',    '',     '',     '',     '',     '',      'DL_E' ],
+                ['DL_W' ,'',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',      'DL_E' ],
+                ['DL_W' ,'',      '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     '',     'DS_S',  'DL_E' ],
+                ['DC_SW','DL_S',  'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S', 'DL_S',  'DC_SE'],
+            ];
+        },
     },
     computed: {
         composition() {
@@ -217,7 +240,8 @@ export default {
                 'MAIN': this.mainComposition,
                 'CATCHING': this.catchingComposition,
                 'CAUGHT': this.caughtComposition,
-                'RUNNING_AWAY': this.runningAwayComposition
+                'RUNNING_AWAY': this.runningAwayComposition,
+                'FLED': this.pokemonFledComposition
             };
             const functions = {
                 a: this.ashImageAtOffset,
@@ -246,7 +270,7 @@ export default {
     background-color: #f9f9f9;
     height: var(--screen-height);
     width: var(--screen-width);
-    top: var(--height-offset);
+    top: calc(var(--height-offset) - var(--vertical-offset));
     left: var(--height-offset);
     z-index: 300;
 }

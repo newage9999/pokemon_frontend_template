@@ -14,7 +14,7 @@ import walking_south from '@/assets/player/walking_south.gif';
 import walking_north from '@/assets/player/walking_north.gif';
 import walking_west from '@/assets/player/walking_west.gif';
 import walking_east from '@/assets/player/walking_east.gif';
-import { mapBlockSize } from '@/base_globals';
+import { mapBlockSize, verticalOffset } from '@/base_globals';
 
 const stringToAsset = {
     "@/assets/player/standing_south.png": standing_south,
@@ -68,12 +68,14 @@ export default {
     left: calc(50% - (var(--map-block-size) / 2));
 }
 #playerHead {
-    bottom: calc(50% + (var(--map-block-size) / 4));
+    bottom: calc(50% + (var(--map-block-size) / 4) + var(--vertical-offset));
     object-position: 0 0;
+    object-fit: cover;
     z-index: 32;
 }
 #playerBody {
-    bottom: calc(50% - (var(--map-block-size) / 4));
+    bottom: calc(50% - (var(--map-block-size) / 4) + var(--vertical-offset));
+    object-fit: cover;
     object-position: v-bind(playerBodyObjectPosition);
     z-index: 30;
 }

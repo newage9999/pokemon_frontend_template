@@ -103,6 +103,40 @@ import low_grass_with_sourth_east_flower from './assets/map/low_grass_with_sourt
 import ball_own from './assets/pokedex/ball_own.png';
 import pokedex_separator from './assets/pokedex/pokedex_separator.png';
 
+import gameboy_advance_back                 from './assets/gameboy_advance/gameboy_advance_back.png';
+import gameboy_advance_front                from './assets/gameboy_advance/gameboy_advance_front.png';
+import gameboy_advance_button_a_hovered     from './assets/gameboy_advance/gameboy_advance_button_a_hovered.png';
+import gameboy_advance_button_a_pressed     from './assets/gameboy_advance/gameboy_advance_button_a_pressed.png';
+import gameboy_advance_button_b_hovered     from './assets/gameboy_advance/gameboy_advance_button_b_hovered.png';
+import gameboy_advance_button_b_pressed     from './assets/gameboy_advance/gameboy_advance_button_b_pressed.png';
+import gameboy_advance_button_up_hovered    from './assets/gameboy_advance/gameboy_advance_button_up_hovered.png';
+import gameboy_advance_button_up_pressed    from './assets/gameboy_advance/gameboy_advance_button_up_pressed.png';
+import gameboy_advance_button_left_hovered  from './assets/gameboy_advance/gameboy_advance_button_left_hovered.png';
+import gameboy_advance_button_left_pressed  from './assets/gameboy_advance/gameboy_advance_button_left_pressed.png';
+import gameboy_advance_button_down_hovered  from './assets/gameboy_advance/gameboy_advance_button_down_hovered.png';
+import gameboy_advance_button_down_pressed  from './assets/gameboy_advance/gameboy_advance_button_down_pressed.png';
+import gameboy_advance_button_right_hovered from './assets/gameboy_advance/gameboy_advance_button_right_hovered.png';
+import gameboy_advance_button_right_pressed from './assets/gameboy_advance/gameboy_advance_button_right_pressed.png';
+import gameboy_advance_button_start_hovered from './assets/gameboy_advance/gameboy_advance_button_start_hovered.png';
+import gameboy_advance_button_start_pressed from './assets/gameboy_advance/gameboy_advance_button_start_pressed.png';
+
+export const gameboyAdvanceBack               = gameboy_advance_back;
+export const gameboyAdvanceFront              = gameboy_advance_front;
+export const gameboyAdvanceButtonAHovered     = gameboy_advance_button_a_hovered;
+export const gameboyAdvanceButtonAPressed     = gameboy_advance_button_a_pressed;
+export const gameboyAdvanceButtonBHovered     = gameboy_advance_button_b_hovered;
+export const gameboyAdvanceButtonBPressed     = gameboy_advance_button_b_pressed;
+export const gameboyAdvanceButtonUpHovered    = gameboy_advance_button_up_hovered;
+export const gameboyAdvanceButtonUpPressed    = gameboy_advance_button_up_pressed;
+export const gameboyAdvanceButtonLeftHovered  = gameboy_advance_button_left_hovered;
+export const gameboyAdvanceButtonLeftPressed  = gameboy_advance_button_left_pressed;
+export const gameboyAdvanceButtonDownHovered  = gameboy_advance_button_down_hovered;
+export const gameboyAdvanceButtonDownPressed  = gameboy_advance_button_down_pressed;
+export const gameboyAdvanceButtonRightHovered = gameboy_advance_button_right_hovered;
+export const gameboyAdvanceButtonRightPressed = gameboy_advance_button_right_pressed;
+export const gameboyAdvanceButtonStartHovered = gameboy_advance_button_start_hovered;
+export const gameboyAdvanceButtonStartPressed = gameboy_advance_button_start_pressed;
+
 export const compositionBlockIdToSrc = {
     'ASH': ash,
     'BALL_CATCHING': ball_catching,
@@ -252,4 +286,8 @@ export const glossary = {
         walkable: 'no'
     }
 };
-export const mapBlockSize = 64;
+
+export const mapBlockSize = 48;
+export const verticalOffset = 50;
+const targetFPS = 60;
+export const frameInterval = 1000 / targetFPS;

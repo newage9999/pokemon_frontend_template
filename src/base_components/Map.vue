@@ -13,7 +13,7 @@
 
 <script>
 import { blocks } from '@/globals';
-import { glossary, mapBlockSize } from '@/base_globals';
+import { glossary, mapBlockSize, verticalOffset, frameInterval } from '@/base_globals';
 
 export default {
     name: 'Map',
@@ -35,7 +35,8 @@ export default {
             oldX: this.playerX,
             oldY: this.playerY,
             movementCounter: 0,
-            moving: false
+            moving: false,
+            lastTime: 0
         };
     },
     computed: {
@@ -52,7 +53,7 @@ export default {
             return pos;
         },
         pixelY() {
-            let pos = this.calculatePixelPosition(this.oldY);
+            let pos = this.calculatePixelPosition(this.oldY) + verticalOffset;
             if (this.oldY > this.playerY) {
                 pos -= this.movementCounter * this.pixelsPerFrame;
             } else if (this.oldY < this.playerY) {
@@ -74,6 +75,7 @@ export default {
             return (value * mapBlockSize) + (mapBlockSize / 2);
         },
         imgSrc(spriteId) {
+            // '@/assets/map/' + glossary[spriteId].name
             return spriteId != null && spriteId in glossary ? glossary[spriteId].asset : '';
         },
         manageGrassEnterAndLeave() {
@@ -145,11 +147,15 @@ export default {
         }
     },
     mounted() {
-        const manageGameClock = () => {
+        const manageGameClock = (timestamp) => {
             requestAnimationFrame(manageGameClock);
-            this.gameClock++;
+            const elapsed = timestamp - this.lastTime;
+            if (elapsed >= frameInterval) {
+                this.lastTime = timestamp - (elapsed % frameInterval);
+                this.gameClock++;
+            }
         };
-        manageGameClock();
+        requestAnimationFrame(manageGameClock);
     }
 };
 </script>
@@ -158,8 +164,6 @@ export default {
 #mapWrapper {
     position: absolute;
     z-index: 10;
-    left: calc(50% - (var(--screen-size) / 2));
-    top: calc(50% - (var(--screen-size) / 2));
     background-color: black !important;
 }
 .row {

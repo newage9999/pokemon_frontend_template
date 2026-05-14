@@ -42,6 +42,9 @@ export default {
     },
     methods: {
         blockStyle(block) {
+            if (block == undefined) {
+                return '';
+            }
             const blockId = typeof block === 'string' ? block : block.id;
             let style = blockId in compositionBlockIdToSrc ? `background-image: url(${compositionBlockIdToSrc[blockId]});` : '';
             if (typeof block !== 'string' && 'numberOfBlocks' in block) {
@@ -133,7 +136,7 @@ export default {
     background-color: #f9f9f9;
     height: var(--screen-height);
     width: var(--screen-width);
-    top: var(--height-offset);
+    top: calc(var(--height-offset) - var(--vertical-offset));
     left: var(--height-offset);
     z-index: 300;
 }
