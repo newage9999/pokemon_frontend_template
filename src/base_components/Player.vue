@@ -30,7 +30,7 @@ const stringToAsset = {
 export default {
     name: 'Player',
     props: {
-        facing: {
+        facingDirection: {
             type: String,
             required: true
         },
@@ -41,9 +41,9 @@ export default {
     },
     computed: {
         playerImgSrc() {
-            if (this.facing && this.movementType) {
+            if (this.facingDirection && this.movementType) {
                 const gifOrPng = this.movementType !== 'standing' ? 'gif' : 'png';
-                const url = `@/assets/player/${this.movementType}_${this.facing}.${gifOrPng}`;
+                const url = `@/assets/player/${this.movementType}_${this.facingDirection}.${gifOrPng}`;
                 return stringToAsset[url];
             }
             return '';
